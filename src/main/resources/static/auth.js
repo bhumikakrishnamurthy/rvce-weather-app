@@ -16,7 +16,6 @@ function authenticateUser() {
           if (status === false) {
               const errorMessage = document.getElementById("error-message");
               errorMessage.innerHTML = error.message;
-              window.location.href = "/login.html";
           } else {
               window.location.href = "/dashboard.html";
           }
