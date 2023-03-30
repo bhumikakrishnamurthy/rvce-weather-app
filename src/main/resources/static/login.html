@@ -36,6 +36,7 @@
                 <button type="submit" class="btn btn-primary btn-block" onclick="authenticateUser()">Login</button>
               </div>
               <div id="error-message"></div>
+              <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             </form>
           </div>
         </div>

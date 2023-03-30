@@ -3,6 +3,7 @@ function authenticateUser() {
   const password = document.getElementById("password").value;
   const loginUrl = "http://localhost:8080/login";
   const loginData = { email: email, password: password };
+
   const loginRequestOptions = {
     method: "POST",
     headers: {
