@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="_csrf_header" content="X-XSRF-TOKEN"/>
+  <meta name="_csrf" content="4bfd1575-3ad1-4d21-76yh-5ygfuyd9f86721"/>
   <title>Login - Weather Dashboard</title>
   <link rel="stylesheet" href="style.css">
   <script src="auth.js"></script>
@@ -21,7 +23,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                   </div>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Username" required>
                 </div>
               </div>
               <div class="form-group">
@@ -36,7 +38,7 @@
                 <button type="submit" class="btn btn-primary btn-block" onclick="authenticateUser()">Login</button>
               </div>
               <div id="error-message"></div>
-              <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+              <input type="hidden" id = "_csrfTokenId" name="_csrf.parameterName" value="_csrf.token" />
             </form>
           </div>
         </div>

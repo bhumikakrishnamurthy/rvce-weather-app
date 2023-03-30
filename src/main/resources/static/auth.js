@@ -3,11 +3,16 @@ function authenticateUser() {
   const password = document.getElementById("password").value;
   const loginUrl = "http://localhost:8080/login";
   const loginData = { email: email, password: password };
+  const tokenHeaderKey = document.getElementsByName('_csrf_header')[0].getAttribute('content')
+  const tokenHeaderVal = document.getElementsByName('_csrf')[0].getAttribute('content')
+  console.log("tokenHeaderKey : " + tokenHeaderKey);
+  console.log("tokenHeaderVal: " + tokenHeaderVal);
 
   const loginRequestOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "X-XSRF-TOKEN": tokenHeaderVal,
     },
     body: JSON.stringify(loginData),
   };

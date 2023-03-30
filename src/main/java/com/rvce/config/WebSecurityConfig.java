@@ -59,39 +59,6 @@ public class WebSecurityConfig {
         return http.build();
     }
 
-    /*@Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/login**").permitAll()
-                        .anyRequest().hasRole("ADMIN")
-                )
-                .csrf().disable()
-                .cors().disable()
-                .formLogin(form ->
-                    form.loginPage("/login.html")
-                            .loginProcessingUrl("/login")
-                            .successForwardUrl("/dashboard.html"));
-        return http.build();
-    }*/
-
-    /*@Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                .cors().disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/login**")
-                .hasRole("ADMIN")
-                .anyRequest()
-                .authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login.html")
-                .loginProcessingUrl("/login1");
-        return http.build();
-    }*/
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
