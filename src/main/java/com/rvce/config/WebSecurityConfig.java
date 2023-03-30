@@ -31,31 +31,12 @@ public class WebSecurityConfig {
                 .password(passwordEncoder().encode("adminPass"))
                 .roles("ADMIN")
                 .build();
-        UserDetails bhumikak = User.withUsername("bhumika")
-                .password(passwordEncoder().encode("password123"))
-                .roles("ADMIN")
-                .build();
-        UserDetails deepthi = User.withUsername("deepthi")
-                .password(passwordEncoder().encode("password456"))
-                .roles("ADMIN")
-                .build();
-        return new InMemoryUserDetailsManager(user1, user2, admin, bhumikak, deepthi);
+        return new InMemoryUserDetailsManager(user1, user2, admin);
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-
-                .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/**").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .csrf().disable()
-                .cors().disable()
-                .formLogin()
-                .loginPage("/login.html")
-                .loginProcessingUrl("/login")
-                .successForwardUrl("/dashboard.html");
+        http.csrf().disable().cors().disable();
         return http.build();
     }
 
